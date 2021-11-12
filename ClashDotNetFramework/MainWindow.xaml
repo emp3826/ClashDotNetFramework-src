@@ -1,0 +1,258 @@
+﻿<Window x:Class="ClashDotNetFramework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClashDotNetFramework"
+        mc:Ignorable="d" FontSize="14" KeyDown="MainWindow_KeyDown"
+        Title="Clash .NET Framework" Background="Transparent"
+        Height="750" Width="1000" MinHeight="750" MinWidth="1000"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/Icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="PathStyle" TargetType="{x:Type Path}">
+                <Setter Property="Width" Value="30"/>
+                <Setter Property="Height" Value="20"/>
+                <Setter Property="Stretch" Value="Uniform"/>
+                <Setter Property="UseLayoutRounding" Value="True"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            
+            <Style x:Key="MenuButtonStyle" TargetType="{x:Type ToggleButton}">
+                <Setter Property="Background" Value="{DynamicResource MenuButtonUnCheckedBackground}"/>
+                <Setter Property="Foreground" Value="{DynamicResource MenuButtonUnCheckedForeground}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Margin" Value="20,0,-1,0"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border
+                                CornerRadius="10,0,0,10"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <!-- Logo -->
+                                        <ColumnDefinition Width="50"/>
+
+                                        <!-- Content -->
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Path Data="{TemplateBinding Tag}"
+                                          Fill="{TemplateBinding Foreground}"
+                                          Style="{StaticResource PathStyle}"/>
+                                    <ContentPresenter
+                                        Grid.Column="1"
+                                        TextBlock.TextAlignment="Left"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Content="{TemplateBinding Content}"/>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Foreground" Value="{DynamicResource MenuButtonCheckedForeground}"/>
+                                    <Setter Property="Background" Value="{DynamicResource MenuButtonCheckedBackground}"/>
+                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border Background="{DynamicResource SidePanelBackground}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+
+                <!-- Left Panel -->
+                <ColumnDefinition Width="250"/>
+
+                <!-- Main Content-->
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left Panel -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Logo -->
+                <TextBlock
+                    FontSize="20"
+                    Text="Clash .NET Framework"
+                    Foreground="{DynamicResource NormalTextForeground}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                <Separator
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SeparatorBackground}"/>
+
+                <!-- Speed Indicator -->
+                <StackPanel
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <TextBlock
+                            Text="↑"
+                            Foreground="{DynamicResource NormalTextForeground}"/>
+                        <TextBlock
+                            Text="0.00 B/s"
+                            Foreground="{DynamicResource NormalTextForeground}"
+                            x:Name="UploadSpeed"
+                            Margin="40,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel
+                        Orientation="Horizontal"
+                        Margin="0,20,0,0">
+                        <TextBlock
+                            Text="↓"
+                            Foreground="{DynamicResource NormalTextForeground}"/>
+                        <TextBlock
+                            Text="0.00 B/s"
+                            Foreground="{DynamicResource NormalTextForeground}"
+                            x:Name="DownloadSpeed"
+                            Margin="40,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                <Separator
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SeparatorBackground}"/>
+                
+                <!-- Menu Button -->
+                <StackPanel
+                    Grid.Row="2"
+                    Margin="0,10">
+                    <RadioButton
+                        IsChecked="True"
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource OverviewIcon}"
+                        Content="{DynamicResource Overview}"
+                        Checked="OverviewButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource ProxiesIcon}"
+                        Content="{DynamicResource Proxies}"
+                        Checked="ProxiesButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource ProfilesIcon}"
+                        Content="{DynamicResource Profiles}"
+                        Checked="ProfilesButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource RulesIcon}"
+                        Content="{DynamicResource Rules}"
+                        Checked="RulesButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource LogsIcon}"
+                        Content="{DynamicResource Logs}"
+                        Checked="LogsButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource ConnectionsIcon}"
+                        Content="{DynamicResource Connections}"
+                        Checked="ConnectionsButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource SettingsIcon}"
+                        Content="{DynamicResource Settings}"
+                        Checked="SettingsButton_Checked"/>
+                    <RadioButton
+                        GroupName="Menu"
+                        Style="{StaticResource MenuButtonStyle}"
+                        Tag="{StaticResource SupportIcon}"
+                        Content="{DynamicResource Support}"
+                        Checked="SupportButton_Checked"/>
+                </StackPanel>
+                <Separator
+                    Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SeparatorBackground}"/>
+
+                <StackPanel
+                    Grid.Row="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                    <!-- Connection Timer -->
+                    <TextBlock
+                        Grid.Row="3"
+                        Text="00 : 00 : 00"
+                        Foreground="{DynamicResource NormalTextForeground}"
+                        FontSize="16"
+                        HorizontalAlignment="Center"
+                        x:Name="ConnectionTime"/>
+
+                    <!-- Status Indicator -->
+                    <StackPanel
+                        Grid.Row="4"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Margin="0,10,0,0">
+                        <Ellipse
+                            Width="12"
+                            Height="12"
+                            Fill="Red"
+                            x:Name="StatusLight"/>
+                        <TextBlock
+                            Text="Disconnected"
+                            Foreground="{DynamicResource NormalTextForeground}"
+                            x:Name="StatusText"
+                            Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <!-- Core Version -->
+                    <TextBlock
+                        Grid.Row="5"
+                        Text="Core Version: Unknown"
+                        Foreground="{DynamicResource NormalTextForeground}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="10,10,0,0"
+                        x:Name="CoreVersionText"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Main Content -->
+            <Border
+                Grid.Column="1"
+                Background="{DynamicResource PageFrameBackground}"
+                CornerRadius="0,10,10,0">
+                <Grid>
+                    <Frame
+                        x:Name="PageFrame"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

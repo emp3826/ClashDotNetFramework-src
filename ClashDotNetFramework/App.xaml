@@ -1,0 +1,17 @@
+﻿<Application x:Class="ClashDotNetFramework.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClashDotNetFramework"
+             xmlns:models="clr-namespace:ClashDotNetFramework.Models"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Templates/ContextMenuStyles.xaml"/>
+                <ResourceDictionary Source="/Templates/ToggleSwitchStyles.xaml"/>
+                <models:LanguageResourceDictionary EnglishSource="/Languages/en-US.xaml" ChineseSource="/Languages/zh-CN.xaml" JapaneseSource="/Languages/ja-JP.xaml"/>
+                <models:ThemeResourceDictionary ClassicSource="/Themes/Classic.xaml" ModernSource="/Themes/Modern.xaml" DarkSource="/Themes/Dark.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
