@@ -1,0 +1,1 @@
+convert Proxy.png -define icon:auto-resize=16,24,32,48,64,256 Proxy.ico
