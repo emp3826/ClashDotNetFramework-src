@@ -1,0 +1,511 @@
+﻿<Page x:Class="ClashDotNetFramework.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClashDotNetFramework.Pages"
+      xmlns:ToggleSwitch="clr-namespace:ToggleSwitch;assembly=ToggleSwitch"
+      mc:Ignorable="d" FontSize="14" Loaded="SettingsPage_Loaded"
+      d:DesignHeight="750" d:DesignWidth="780"
+      Title="SettingsPage">
+    <Page.Resources>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="{DynamicResource GridBorderBackground}"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ValueTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource GridTextForeground}"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style x:Key="UpdateButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#BB5151"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5,0,0,15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ToggleSwitchStyle" TargetType="ToggleSwitch:HorizontalToggleSwitch" BasedOn="{StaticResource iOS5ToggleSwitchStyle}">
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+        <Style x:Key="SettingButtonStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource GridTextForeground}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RadioButtonStyle" TargetType="RadioButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{DynamicResource RadioButtonUnCheckedBackground}"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource ButtonCheckedBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RadioButtonLeftRoundStyle" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border CornerRadius="4,0,0,4" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource ButtonCheckedBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RadioButtonRightRoundStyle" TargetType="RadioButton" BasedOn="{StaticResource RadioButtonStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border CornerRadius="0,4,4,0" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource ButtonCheckedBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Top Panel-->
+            <RowDefinition Height="100"/>
+            
+            <!--- Main Content -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Page Title -->
+                <ColumnDefinition/>
+
+                <!-- Reset All Settings Button -->
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Page Title -->
+            <TextBlock
+                Text="{DynamicResource Settings}"
+                FontSize="24"
+                Foreground="{DynamicResource NormalTextForeground}"
+                VerticalAlignment="Center"
+                Margin="20,0,0,0"/>
+
+            <!-- Action Button -->
+            <Grid
+                Grid.Column="1"
+                Margin="0,0,20,0">
+               
+                <!-- Action Buttons -->
+                <Grid.ColumnDefinitions>
+                    <!-- Check MMDB Update -->
+                    <ColumnDefinition/>
+                    
+                    <!-- Reset All Settings -->
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Check MMDB Update -->
+                <Button
+                    Style="{StaticResource ButtonStyle}"
+                    Content="{DynamicResource CheckMMDBUpdate}"
+                    Click="CheckMMDBUpdate_Click"/>
+                
+                <!-- Reset All Settings -->
+                <Button
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Content="{DynamicResource ResetAllSettings}"
+                    Click="ResetAllSettings_Click"
+                    Margin="20,0,0,0"/>
+            </Grid>
+        </Grid>
+        <Separator
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource SeparatorBackground}"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <!-- Icon & Title -->
+                <RowDefinition Height="100"/>
+
+                <!-- Settings Block -->
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Icon & Title -->
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                
+                <!-- Icon -->
+                <Image
+                    Source="{DynamicResource AppLogo}"
+                    Stretch="Uniform"
+                    RenderOptions.BitmapScalingMode="Fant"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                
+                <!-- Name -->
+                <TextBlock
+                    Text="Clash .NET Framework"
+                    Foreground="{DynamicResource NormalTextForeground}"
+                    FontSize="32"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="10,0,0,0"/>
+                
+                <!-- Version -->
+                <TextBlock
+                    Foreground="{DynamicResource NormalTextForeground}"
+                    FontSize="16"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="20,0,0,0"
+                    x:Name="Version"/>
+
+                <!-- Update Button -->
+                <Button
+                    Style="{StaticResource UpdateButtonStyle}"
+                    Content="New"
+                    Visibility="Collapsed"
+                    Click="UpdateButton_Click"
+                    x:Name="UpdateButton"/>
+            </StackPanel>
+            <Grid
+                Grid.Row="1"
+                Margin="40,5,40,40">
+                
+                <!-- Row Definitions -->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- Column Definitions -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Controller Port -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource ControllerPort}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <Button
+                            Style="{StaticResource SettingButtonStyle}"
+                            Click="ControllerPort_Click"
+                            x:Name="ControllerPort"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Mixed Port -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource MixedPort}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <Button
+                            Style="{StaticResource SettingButtonStyle}"
+                            Click="MixedPort_Click"
+                            x:Name="MixedPort"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Log Level -->
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,0,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource LogLevel}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <TextBlock
+                            Style="{StaticResource ValueTextStyle}"
+                            x:Name="LogLevel"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Allow LAN -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource AllowLAN}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <ToggleSwitch:HorizontalToggleSwitch
+                            Style="{StaticResource ToggleSwitchStyle}"
+                            Checked="AllowLAN_Checked"
+                            Unchecked="AllowLAN_Unchecked"
+                            x:Name="AllowLAN"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- IPV6 -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="IPV6"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <ToggleSwitch:HorizontalToggleSwitch
+                            Style="{StaticResource ToggleSwitchStyle}"
+                            Checked="IPV6_Checked"
+                            Unchecked="IPV6_Unchecked"
+                            x:Name="IPV6"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Start with Windows -->
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,0,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource StartWithWindows}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <ToggleSwitch:HorizontalToggleSwitch
+                            Style="{StaticResource ToggleSwitchStyle}"
+                            Checked="StartWithWindows_Checked"
+                            Unchecked="StartWithWindows_Unchecked"
+                            x:Name="StartWithWindows"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- UWP Loopback -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource UWPLoopback}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <Button
+                            Style="{StaticResource SettingButtonStyle}"
+                            Content="{DynamicResource LaunchHelper}"
+                            Click="UWPLoopback_Click"/>
+                    </StackPanel>
+                 </Border>
+
+                 <!-- NetFilter Driver -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource NetFilterDriver}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <Button
+                            Style="{StaticResource SettingButtonStyle}"
+                            Content="{DynamicResource Install}"
+                            Click="NetFilterSDK_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Process Proxy -->
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,0,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource ProcessProxy}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <ToggleSwitch:HorizontalToggleSwitch
+                            Style="{StaticResource ToggleSwitchStyle}"
+                            Checked="ProcessProxy_Checked"
+                            Unchecked="ProcessProxy_Unchecked"
+                            x:Name="ProcessProxy"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Theme -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource Theme}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"
+                            HorizontalAlignment="Center"/>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="0,20,0,0">
+                            <RadioButton x:Name="ClassicTheme" Style="{StaticResource RadioButtonLeftRoundStyle}" Content="Classic" Click="ClassicTheme_Click"/>
+                            <RadioButton x:Name="ModernTheme" Style="{StaticResource RadioButtonStyle}" Content="Modern" Click="ModernTheme_Click"/>
+                            <RadioButton x:Name="DarkTheme" Style="{StaticResource RadioButtonRightRoundStyle}" Content="Dark" Click="DarkTheme_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- Language -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,20,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource Language}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"
+                            HorizontalAlignment="Center"/>
+                        <StackPanel
+                            Orientation="Horizontal"
+                            Margin="0,20,0,0">
+                            <RadioButton x:Name="EnglishLanguage" Style="{StaticResource RadioButtonLeftRoundStyle}" Content="en-US" Click="EnglishLanguage_Click"/>
+                            <RadioButton x:Name="ChineseLanguage" Style="{StaticResource RadioButtonStyle}" Content="zh-CN" Click="ChineseLanguage_Click"/>
+                            <RadioButton x:Name="JapaneseLanguage" Style="{StaticResource RadioButtonRightRoundStyle}" Content="ja-JP" Click="JapaneseLanguage_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+                <!-- System Proxy -->
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Style="{StaticResource BorderStyle}"
+                    Margin="0,0,0,20">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Text="{DynamicResource SystemProxy}"
+                            Foreground="{DynamicResource GridTextForeground}"
+                            FontSize="18"/>
+                        <ToggleSwitch:HorizontalToggleSwitch
+                            Style="{StaticResource ToggleSwitchStyle}"
+                            Checked="SystemProxy_Checked"
+                            Unchecked="SystemProxy_Unchecked"
+                            x:Name="SystemProxy"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

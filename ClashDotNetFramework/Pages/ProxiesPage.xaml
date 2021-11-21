@@ -1,0 +1,238 @@
+﻿<Page x:Class="ClashDotNetFramework.Pages.ProxiesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClashDotNetFramework.Pages"
+      xmlns:converters="clr-namespace:ClashDotNetFramework.Models.Converters"
+      xmlns:items="clr-namespace:ClashDotNetFramework.Models.Items"
+      xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+      xmlns:wpftk="clr-namespace:WpfToolkit.Controls;assembly=VirtualizingWrapPanel"
+      mc:Ignorable="d" FontSize="14" Loaded="Page_Loaded"
+      d:DesignHeight="750" d:DesignWidth="780"
+      Title="ProxiesPage">
+    <Page.Resources>
+        <converters:GroupNameToExpandedConverter x:Key="GroupNameToExpandedConverter"/>
+        <converters:LatencyToColorConverter x:Key="LatencyToColorConverter"/>
+        <converters:LatencyToTextConverter x:Key="LatencyToTextConverter"/>
+        <converters:StatusToColorConverter x:Key="StatusToColorConverter"/>
+        <Style x:Key="ButtonStyle" TargetType="ToggleButton">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonUnCheckedForeground}"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonUnCheckedBackground}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Foreground" Value="{DynamicResource ButtonCheckedForeground}"/>
+                                <Setter Property="Background" Value="{DynamicResource ButtonCheckedBackground}"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TransparentButtonStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate x:Key="ProxyItemTemplate" DataType="items:ProxyItem">
+            <Border
+                Background="{Binding IsSelected, Converter={StaticResource StatusToColorConverter}}"
+                CornerRadius="2"
+                Width="300">
+                <Grid Margin="15,10,0,10">
+                    <Grid.ColumnDefinitions>
+                        <!-- Proxy Information -->
+                        <ColumnDefinition/>
+
+                        <!-- Check Latency Button -->
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Proxy Information -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!-- Proxy Name -->
+                            <RowDefinition/>
+
+                            <!-- Proxy Type -->
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Proxy Name -->
+                        <emoji:TextBlock
+                            Text="{Binding Name}"
+                            TextTrimming="CharacterEllipsis"
+                            Foreground="White"/>
+
+                        <!-- Proxy Type -->
+                        <emoji:TextBlock
+                            Grid.Row="1"
+                            Text="{Binding Type}"
+                            TextTrimming="CharacterEllipsis"
+                            Foreground="White"
+                            FontSize="12"
+                            Margin="0,5,0,0"/>
+                    </Grid>
+
+                    <!-- Check Latency Button -->
+                    <Button
+                        Grid.Column="1"
+                        Style="{StaticResource TransparentButtonStyle}"
+                        Tag="{Binding Name}"
+                        Foreground="{Binding Latency, Converter={StaticResource LatencyToColorConverter}}"
+                        Content="{Binding Latency, Converter={StaticResource LatencyToTextConverter}}"
+                        Click="TestButton_Click"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Top Buttons -->
+            <RowDefinition Height="100"/>
+            
+            <!-- Proxy GridView -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Top Buttons -->
+        <StackPanel
+            Height="50"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            
+            <!-- Direct Button -->
+            <RadioButton
+                GroupName="Mode"
+                Style="{StaticResource ButtonStyle}"
+                Content="Direct"
+                Click="DirectButton_Click"
+                x:Name="DirectButton"/>
+            
+            <!-- Rule Button -->
+            <RadioButton
+                IsChecked="True"
+                GroupName="Mode"
+                Style="{StaticResource ButtonStyle}"
+                Margin="40,0,0,0"
+                Content="Rule"
+                Click="RuleButton_Click"
+                x:Name="RuleButton"/>
+            
+            <!-- Global Button -->
+            <RadioButton
+                GroupName="Mode"
+                Style="{StaticResource ButtonStyle}"
+                Margin="40,0,0,0"
+                Content="Global"
+                Click="GlobalButton_Click"
+                x:Name="GlobalButton"/>
+        </StackPanel>
+        <Separator
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource SeparatorBackground}"/>
+
+        <!-- Main Content -->
+        <Grid
+            Grid.Row="1"
+            Margin="14,5,20,20">
+            <ListView
+                Background="Transparent"
+                BorderBrush="Transparent"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ItemTemplate="{StaticResource ProxyItemTemplate}"
+                SelectionChanged="ProxyListView_SelectionChanged"
+                SelectionMode="Single"
+                VirtualizingPanel.CacheLengthUnit="Page"
+                VirtualizingPanel.CacheLength="1,1"
+                VirtualizingPanel.ScrollUnit="Pixel"
+                VirtualizingPanel.VirtualizationMode="Standard"
+                VirtualizingPanel.IsVirtualizingWhenGrouping="True"
+                x:Name="ProxyListView">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="0,10,10,0"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <ContentPresenter/>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate x:Name="ItemsPanelTemplate">
+                        <wpftk:VirtualizingWrapPanel
+                            SpacingMode="None"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.GroupStyle>
+                    <GroupStyle HidesIfEmpty="True">
+                        <GroupStyle.ContainerStyle>
+                            <Style TargetType="{x:Type GroupItem}">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Expander IsExpanded="{Binding Name, Mode=OneWay, Converter={StaticResource GroupNameToExpandedConverter}}">
+                                                <Expander.Header>
+                                                    <emoji:TextBlock 
+                                                        Text="{Binding Name}"
+                                                        Foreground="{DynamicResource NormalTextForeground}"
+                                                        FontSize="20"
+                                                        HorizontalAlignment="Left"
+                                                        Margin="10,0,0,0"/>
+                                                </Expander.Header>
+                                                <ItemsPresenter/>
+                                            </Expander>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </GroupStyle.ContainerStyle>
+                        <GroupStyle.Panel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel 
+                                    Orientation="{Binding Orientation, Mode=OneWay}" />
+                            </ItemsPanelTemplate>
+                        </GroupStyle.Panel>
+                    </GroupStyle>
+                </ListView.GroupStyle>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

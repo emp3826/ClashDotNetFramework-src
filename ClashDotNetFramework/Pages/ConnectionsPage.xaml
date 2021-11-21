@@ -1,0 +1,159 @@
+﻿<Page x:Class="ClashDotNetFramework.Pages.ConnectionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClashDotNetFramework.Pages"
+      xmlns:items="clr-namespace:ClashDotNetFramework.Models.Items"
+      xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
+      mc:Ignorable="d" FontSize="14" Loaded="ConnectionsPage_Loaded" Unloaded="ConnectionsPage_Unloaded"
+      d:DesignHeight="750" d:DesignWidth="780"
+      Title="ConnectionsPage">
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="Padding" Value="4,4"/>
+        </Style>
+        <Style x:Key="MarginBorderStyle" TargetType="Border" BasedOn="{StaticResource BorderStyle}">
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+        <DataTemplate x:Key="ConnectionItemTemplate" DataType="items:ConnectionItem">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- Destination Label -->
+                    <RowDefinition Height="Auto"/>
+
+                    <!-- Status Labels -->
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <!-- Destination Label -->
+                <TextBlock
+                    Text="{Binding TargetHost}"
+                    Foreground="{DynamicResource NormalTextForeground}"/>
+                
+                <!-- Status Labels -->
+                <StackPanel
+                    Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,5,0,10">
+                    <Border
+                        Style="{StaticResource BorderStyle}"
+                        Background="#CE8647">
+                        <TextBlock
+                            Text="{Binding Network}"
+                            Foreground="White"/>
+                    </Border>
+                    <Border
+                        Style="{StaticResource MarginBorderStyle}"
+                        Background="#CF9F46">
+                        <TextBlock
+                            Text="{Binding Type}"
+                            Foreground="White"/>
+                    </Border>
+                    <Border
+                        Style="{StaticResource MarginBorderStyle}"
+                        Background="#75AB5B">
+                        <emoji:TextBlock
+                            Text="{Binding FinalNode}"
+                            Foreground="White"/>
+                    </Border>
+                    <Border
+                        Style="{StaticResource MarginBorderStyle}"
+                        Background="#369F71">
+                        <TextBlock
+                            Text="{Binding Time}"
+                            Foreground="White"/>
+                    </Border>
+                    <Border
+                        Style="{StaticResource MarginBorderStyle}"
+                        Background="#428EE4">
+                        <TextBlock
+                            Text="{Binding Speed}"
+                            Foreground="White"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Page Title, Upload & Download Label and Close All Button -->
+            <RowDefinition Height="100"/>
+
+            <!-- Main Content -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Page Title and Upload & Download Label -->
+                <ColumnDefinition/>
+
+                <!-- Close All Button -->
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Page Title, Upload & Download Label -->
+            <StackPanel
+                VerticalAlignment="Center"
+                Margin="20,0,0,0">
+                <TextBlock
+                    Text="{DynamicResource Connections}"
+                    FontSize="24"
+                    Foreground="{DynamicResource NormalTextForeground}"/>
+                <TextBlock
+                    Text="Total: ↑0.00 KB ↓0.00 KB"
+                    Foreground="{DynamicResource NormalTextForeground}"
+                    x:Name="TotalTraffic"
+                    Margin="0,10,0,0"/>
+            </StackPanel>
+
+            <!-- Close All Button -->
+            <Grid
+                Grid.Column="1">
+                <Button
+                    Style="{StaticResource ButtonStyle}"
+                    Content="{DynamicResource CloseAll}"
+                    Margin="0,0,20,0"
+                    Click="CloseAllButton_Click"/>
+            </Grid>
+        </Grid>
+        <Separator
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource SeparatorBackground}"/>
+
+        <!-- Connection ListView -->
+        <Grid
+            Grid.Row="1"
+            Margin="14,5,14,20">
+            <ListView
+                Background="Transparent"
+                BorderBrush="Transparent"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                ItemTemplate="{StaticResource ConnectionItemTemplate}"
+                SelectionMode="Single"
+                SelectionChanged="ConnectionItemListView_SelectionChanged"
+                x:Name="ConnectionItemListView">
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

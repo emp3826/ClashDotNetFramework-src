@@ -1,0 +1,217 @@
+﻿<Page x:Class="ClashDotNetFramework.Pages.SupportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClashDotNetFramework.Pages"
+      mc:Ignorable="d" FontSize="18" Loaded="SupportPage_Loaded"
+      d:DesignHeight="750" d:DesignWidth="780"
+      Title="SupportPage">
+    <Page.Resources>
+        <Style x:Key="HyperlinkStyle" TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="#01ABF7"/>
+            <Setter Property="TextDecorations" Value=""/>
+        </Style>
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="690"/>
+            <Setter Property="Height" Value="165"/>
+            <Setter Property="Stretch" Value="Fill"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="Fant"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Page Title -->
+            <RowDefinition Height="100"/>
+            
+            <!-- Developer Information -->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Help Information -->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Creidts Information -->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Donate Information -->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Advertisement Information -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Page Title -->
+        <TextBlock
+            Text="{DynamicResource Support}"
+            FontSize="24"
+            Foreground="{DynamicResource NormalTextForeground}"
+            VerticalAlignment="Center"
+            Margin="20,0,0,0"/>
+        <Separator
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource SeparatorBackground}"/>
+
+        <!-- Developer Information -->
+        <StackPanel
+            Grid.Row="1"
+            Margin="20,5,0,0">
+            <TextBlock
+                Text="{DynamicResource Developer}"
+                Foreground="{DynamicResource NormalTextForeground}"/>
+            <TextBlock
+                Text="TheWanderingCoel"
+                Foreground="#01ABF7"/>
+        </StackPanel>
+        
+        <!-- Help Information -->
+        <StackPanel
+            Grid.Row="2"
+            Margin="20,10,0,0">
+            <TextBlock
+                Text="{DynamicResource Help}"
+                Foreground="{DynamicResource NormalTextForeground}"/>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock>
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/ClashDotNetFramework/ClashDotNetFramework" RequestNavigate="Hyperlink_RequestNavigate">
+                        Github
+                    </Hyperlink>
+                </TextBlock>
+                <!--
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/Dreamacro/clash" RequestNavigate="Hyperlink_RequestNavigate">
+                        Document
+                    </Hyperlink>
+                </TextBlock>
+                -->
+                <!-- Twitter
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://discord.gg/vsDxzJ9R75" RequestNavigate="Hyperlink_RequestNavigate">
+                        Twitter
+                    </Hyperlink>
+                </TextBlock>
+                -->
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://discord.gg/vsDxzJ9R75" RequestNavigate="Hyperlink_RequestNavigate">
+                        Discord
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://t.me/ClashDotNetFramework" RequestNavigate="Hyperlink_RequestNavigate">
+                        Telegram
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://t.me/ClashDotNetFramework" RequestNavigate="Hyperlink_RequestNavigate">
+                        Telegram Channel
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Credits Information -->
+        <StackPanel
+            Grid.Row="3"
+            Margin="20,10,0,0">
+            <TextBlock
+                Text="{DynamicResource Credits}"
+                Foreground="{DynamicResource NormalTextForeground}"/>
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBlock>
+                     <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/Dreamacro/clash" RequestNavigate="Hyperlink_RequestNavigate">
+                        Clash
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/Dreamacro/clash-dashboard" RequestNavigate="Hyperlink_RequestNavigate">
+                        Clash-Dashboard
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/yichengchen/clashX" RequestNavigate="Hyperlink_RequestNavigate">
+                        ClashX
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/Fndroid/clash_for_windows_pkg" RequestNavigate="Hyperlink_RequestNavigate">
+                        Clash For Windows
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/NetchX/Netch" RequestNavigate="Hyperlink_RequestNavigate">
+                        Netch
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://netfiltersdk.com" RequestNavigate="Hyperlink_RequestNavigate">
+                        NetFilter SDK
+                    </Hyperlink>
+                </TextBlock>
+                <TextBlock
+                    Margin="10,0,0,0">
+                    <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://github.com/haishanh/yacd" RequestNavigate="Hyperlink_RequestNavigate">
+                        Yacd
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Donate Information -->
+        <StackPanel
+            Grid.Row="4"
+            Margin="20,10,0,0">
+            <TextBlock
+                Text="{DynamicResource Donate}"
+                Foreground="{DynamicResource NormalTextForeground}"/>
+            <StackPanel
+                Orientation="Horizontal">
+                <!--
+                <TextBlock>
+                     <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://u.nu/leudd" RequestNavigate="Hyperlink_RequestNavigate">
+                        Airports
+                    </Hyperlink>
+                </TextBlock>
+                -->
+                <TextBlock>
+                     <Hyperlink Style="{StaticResource HyperlinkStyle}" NavigateUri="https://u.nu/leudd" RequestNavigate="Hyperlink_RequestNavigate">
+                        CryptoCurrency
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Advertisement Information -->
+        <StackPanel
+            Grid.Row="5"
+            Margin="20,10,0,0">
+            <TextBlock
+                Text="{DynamicResource Advertisement}"
+                Foreground="{DynamicResource NormalTextForeground}"/>
+            <StackPanel>
+                <Image
+                    Style="{StaticResource ImageStyle}"
+                    MouseLeftButtonDown="Advertisement_MouseLeftButtonDown"
+                    Margin="0,5,0,0"
+                    x:Name="MajorAdvertisement"/>
+                <Image
+                    Style="{StaticResource ImageStyle}"
+                    MouseLeftButtonDown="Advertisement_MouseLeftButtonDown"
+                    Margin="0,10,0,0"
+                    x:Name="MinorAdvertisement"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
