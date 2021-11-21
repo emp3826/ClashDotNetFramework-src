@@ -1,0 +1,100 @@
+﻿<Window x:Class="ClashDotNetFramework.Dialogs.DuplicateProfileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClashDotNetFramework.Dialogs"
+        xmlns:TxtBox="clr-namespace:WatermarkControlsLib.Controls;assembly=WatermarkControlsLib"
+        mc:Ignorable="d" FontSize="14" KeyDown="Window_KeyDown"
+        Title="DuplicateProfileDialog" Background="{DynamicResource DialogBackground}"
+        Height="210" Width="380" MinHeight="210" MinWidth="380"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner"
+        ShowInTaskbar="False">
+    <Window.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource NormalTextForeground}"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="{DynamicResource TextBoxBorderBrush}"/>
+            <Setter Property="Background" Value="{DynamicResource TextBoxBackground}"/>
+            <Setter Property="Foreground" Value="{DynamicResource NormalTextForeground}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                            <ContentPresenter x:Name="ContentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Dialog Title -->
+            <RowDefinition Height="Auto"/>
+            
+            <!-- Main Content -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Dialog Title -->
+        <TextBlock
+            Text="{DynamicResource DuplicateProfile}"
+            Foreground="{DynamicResource NormalTextForeground}"
+            FontSize="16"
+            Margin="20,20,20,0"/>
+        
+        <!-- Main Content -->
+        <StackPanel
+            Grid.Row="1"
+            Margin="20">
+            <StackPanel>
+                <StackPanel>
+                    <TextBlock
+                        Style="{StaticResource TextBlockStyle}"
+                        Text="{DynamicResource Name}"/>
+                    <TxtBox:WatermarkTextBox
+                        Style="{StaticResource TextBoxStyle}"
+                        Margin="0,5,0,0"
+                        x:Name="Name">
+                        <TxtBox:WatermarkTextBox.Watermark>
+                            <TextBlock
+                                Text="{DynamicResource InputNewFileName}"
+                                Foreground="{DynamicResource NormalTextForeground}"
+                                Margin="5,0,0,0"/>
+                        </TxtBox:WatermarkTextBox.Watermark>
+                    </TxtBox:WatermarkTextBox>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Horizontal"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Center">
+                    <Button
+                        Style="{StaticResource ButtonStyle}"
+                        Content="{DynamicResource Ok}"
+                        Click="OkButton_Click"
+                        Margin="25,0"/>
+                    <Button
+                        Style="{StaticResource ButtonStyle}"
+                        Content="{DynamicResource Cancel}"
+                        Click="CancelButton_Click"
+                        Margin="25,0"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
