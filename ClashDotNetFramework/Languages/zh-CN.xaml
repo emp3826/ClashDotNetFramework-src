@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClashDotNetFramework.Languages"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Main Window -->
+    <sys:String x:Key="Overview">概述</sys:String>
+    <sys:String x:Key="Proxies">代理</sys:String>
+    <sys:String x:Key="Profiles">配置</sys:String>
+    <sys:String x:Key="Rules">规则</sys:String>
+    <sys:String x:Key="Logs">日志</sys:String>
+    <sys:String x:Key="Connections">连接</sys:String>
+    <sys:String x:Key="Settings">设置</sys:String>
+    <sys:String x:Key="Support">支持</sys:String>
+
+    <!-- Profiles Page -->
+    <sys:String x:Key="DownloadFromURL">从URL下载配置文件</sys:String>
+    <sys:String x:Key="Download">下载</sys:String>
+    <sys:String x:Key="UpdateAll">更新所有配置</sys:String>
+    <sys:String x:Key="Import">导入</sys:String>
+    <sys:String x:Key="SelectProfile">切换到该配置文件</sys:String>
+    <sys:String x:Key="UpdateProfile">更新配置文件</sys:String>
+    <sys:String x:Key="EditProfile">编辑配置文件</sys:String>
+    <sys:String x:Key="DuplicateProfile">复制配置文件</sys:String>
+    <sys:String x:Key="GoToURL">打开配置文件URL</sys:String>
+    <sys:String x:Key="ProfileSettings">配置文件设置</sys:String>
+    <sys:String x:Key="DeleteProfile">删除配置文件</sys:String>
+
+    <!-- Logs Page -->
+    <sys:String x:Key="Clear">清空</sys:String>
+    <sys:String x:Key="Start">开启</sys:String>
+    <sys:String x:Key="Stop">关闭</sys:String>
+
+    <!-- Connections Page -->
+    <sys:String x:Key="CloseAll">断开所有连接</sys:String>
+
+    <!-- Settings Page -->
+    <sys:String x:Key="CheckMMDBUpdate">检查 MMDB 更新</sys:String>
+    <sys:String x:Key="ResetAllSettings">重置所有设置</sys:String>
+    <sys:String x:Key="ControllerPort">控制器端口</sys:String>
+    <sys:String x:Key="MixedPort">混合端口</sys:String>
+    <sys:String x:Key="LogLevel">日志等级</sys:String>
+    <sys:String x:Key="AllowLAN">允许局域网连接</sys:String>
+    <sys:String x:Key="IPV6">IPV6</sys:String>
+    <sys:String x:Key="StartWithWindows">开机时启动</sys:String>
+    <sys:String x:Key="UWPLoopback">UWP 本地回环</sys:String>
+    <sys:String x:Key="LaunchHelper">启动助手</sys:String>
+    <sys:String x:Key="NetFilterDriver">NetFilter 驱动</sys:String>
+    <sys:String x:Key="Install">安装</sys:String>
+    <sys:String x:Key="ProcessProxy">进程代理</sys:String>
+    <sys:String x:Key="Theme">主题</sys:String>
+    <sys:String x:Key="Language">语言</sys:String>
+    <sys:String x:Key="SystemProxy">系统代理</sys:String>
+
+    <!-- Support Page -->
+    <sys:String x:Key="Developer">开发者</sys:String>
+    <sys:String x:Key="Help">帮助</sys:String>
+    <sys:String x:Key="Credits">鸣谢</sys:String>
+    <sys:String x:Key="Donate">捐赠</sys:String>
+    <sys:String x:Key="Airport">机场</sys:String>
+    <sys:String x:Key="CryptoCurrency">加密货币</sys:String>
+    <sys:String x:Key="Advertisement">广告</sys:String>
+
+    <!-- Dialogs -->
+    <sys:String x:Key="EditProfileInformation">编辑配置文件信息</sys:String>
+    <sys:String x:Key="Name">名称</sys:String>
+    <sys:String x:Key="URL">URL</sys:String>
+    <sys:String x:Key="UpdateInterval">更新间隔 (小时)</sys:String>
+    <sys:String x:Key="InputNewFileName">输入一个新文件名称</sys:String>
+    <sys:String x:Key="Ok">确认</sys:String>
+    <sys:String x:Key="Cancel">取消</sys:String>
+</ResourceDictionary>

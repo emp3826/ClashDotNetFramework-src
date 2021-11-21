@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClashDotNetFramework.Languages"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Main Window -->
+    <sys:String x:Key="Overview">Overview</sys:String>
+    <sys:String x:Key="Proxies">Proxies</sys:String>
+    <sys:String x:Key="Profiles">Profiles</sys:String>
+    <sys:String x:Key="Rules">Rules</sys:String>
+    <sys:String x:Key="Logs">Logs</sys:String>
+    <sys:String x:Key="Connections">Connections</sys:String>
+    <sys:String x:Key="Settings">Settings</sys:String>
+    <sys:String x:Key="Support">Support</sys:String>
+
+    <!-- Profiles Page -->
+    <sys:String x:Key="DownloadFromURL">Download From a URL</sys:String>
+    <sys:String x:Key="Download">Download</sys:String>
+    <sys:String x:Key="UpdateAll">Update All</sys:String>
+    <sys:String x:Key="Import">Import</sys:String>
+    <sys:String x:Key="SelectProfile">Select Profile</sys:String>
+    <sys:String x:Key="UpdateProfile">Update Profile</sys:String>
+    <sys:String x:Key="EditProfile">Edit Profile</sys:String>
+    <sys:String x:Key="DuplicateProfile">Duplicate Profile</sys:String>
+    <sys:String x:Key="GoToURL">Go to URL</sys:String>
+    <sys:String x:Key="ProfileSettings">Profile Settings</sys:String>
+    <sys:String x:Key="DeleteProfile">Delete Profile</sys:String>
+    
+    <!-- Logs Page -->
+    <sys:String x:Key="Clear">Clear</sys:String>
+    <sys:String x:Key="Start">Start</sys:String>
+    <sys:String x:Key="Stop">Stop</sys:String>
+    
+    <!-- Connections Page -->
+    <sys:String x:Key="CloseAll">Close All</sys:String>
+
+    <!-- Settings Page -->
+    <sys:String x:Key="CheckMMDBUpdate">Check MMDB Update</sys:String>
+    <sys:String x:Key="ResetAllSettings">Reset All Settings</sys:String>
+    <sys:String x:Key="ControllerPort">Controller Port</sys:String>
+    <sys:String x:Key="MixedPort">Mixed Port</sys:String>
+    <sys:String x:Key="LogLevel">Log Level</sys:String>
+    <sys:String x:Key="AllowLAN">Allow LAN</sys:String>
+    <sys:String x:Key="IPV6">IPV6</sys:String>
+    <sys:String x:Key="StartWithWindows">Start with Windows</sys:String>
+    <sys:String x:Key="UWPLoopback">UWP Loopback</sys:String>
+    <sys:String x:Key="LaunchHelper">Launch Helper</sys:String>
+    <sys:String x:Key="NetFilterDriver">NetFilter Driver</sys:String>
+    <sys:String x:Key="Install">Install</sys:String>
+    <sys:String x:Key="ProcessProxy">Process Proxy</sys:String>
+    <sys:String x:Key="Theme">Theme</sys:String>
+    <sys:String x:Key="Language">Language</sys:String>
+    <sys:String x:Key="SystemProxy">System Proxy</sys:String>
+    
+    <!-- Support Page -->
+    <sys:String x:Key="Developer">Developer</sys:String>
+    <sys:String x:Key="Help">Help</sys:String>
+    <sys:String x:Key="Credits">Credits</sys:String>
+    <sys:String x:Key="Donate">Donate</sys:String>
+    <sys:String x:Key="Airport">Airport</sys:String>
+    <sys:String x:Key="CryptoCurrency">Crypto Currency</sys:String>
+    <sys:String x:Key="Advertisement">Advertisement</sys:String>
+
+    <!-- Dialogs -->
+    <sys:String x:Key="EditProfileInformation">Edit Profile Information</sys:String>
+    <sys:String x:Key="Name">Name</sys:String>
+    <sys:String x:Key="URL">URL</sys:String>
+    <sys:String x:Key="UpdateInterval">Update Interval (hour)</sys:String>
+    <sys:String x:Key="InputNewFileName">Input a new file name</sys:String>
+    <sys:String x:Key="Ok">Ok</sys:String>
+    <sys:String x:Key="Cancel">Cancel</sys:String>
+</ResourceDictionary>

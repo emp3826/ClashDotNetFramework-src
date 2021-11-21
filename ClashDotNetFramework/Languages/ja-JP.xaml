@@ -1,0 +1,71 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClashDotNetFramework.Languages"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Main Window -->
+    <sys:String x:Key="Overview">オーバービュー</sys:String>
+    <sys:String x:Key="Proxies">プロキシ</sys:String>
+    <sys:String x:Key="Profiles">プロファイル</sys:String>
+    <sys:String x:Key="Rules">ルール</sys:String>
+    <sys:String x:Key="Logs">ログ</sys:String>
+    <sys:String x:Key="Connections">接続</sys:String>
+    <sys:String x:Key="Settings">設定</sys:String>
+    <sys:String x:Key="Support">サポート</sys:String>
+
+    <!-- Profiles Page -->
+    <sys:String x:Key="DownloadFromURL">URLからダウンロード</sys:String>
+    <sys:String x:Key="Download">ダウンロード</sys:String>
+    <sys:String x:Key="UpdateAll">すべてをアップデート</sys:String>
+    <sys:String x:Key="Import">取り込む</sys:String>
+    <sys:String x:Key="SelectProfile">プロファイルに切替える</sys:String>
+    <sys:String x:Key="UpdateProfile">プロファイルを更新</sys:String>
+    <sys:String x:Key="EditProfile">プロファイルを編集</sys:String>
+    <sys:String x:Key="DuplicateProfile">プロファイルを複製</sys:String>
+    <sys:String x:Key="GoToURL">プロファイルのURLを開く</sys:String>
+    <sys:String x:Key="ProfileSettings">プロファイルの設定</sys:String>
+    <sys:String x:Key="DeleteProfile">プロファイルを削除</sys:String>
+
+    <!-- Logs Page -->
+    <sys:String x:Key="Clear">クリア</sys:String>
+    <sys:String x:Key="Start">スタート</sys:String>
+    <sys:String x:Key="Stop">ストップ</sys:String>
+
+    <!-- Connections Page -->
+    <sys:String x:Key="CloseAll">すべての接続を切断</sys:String>
+
+    <!-- Settings Page -->
+    <sys:String x:Key="CheckMMDBUpdate">MMDBのアップデートを確認</sys:String>
+    <sys:String x:Key="ResetAllSettings">設定をリセット</sys:String>
+    <sys:String x:Key="ControllerPort">コントローラーポート</sys:String>
+    <sys:String x:Key="MixedPort">混合ポート</sys:String>
+    <sys:String x:Key="LogLevel">ログレベル</sys:String>
+    <sys:String x:Key="AllowLAN">LANからの接続を許可</sys:String>
+    <sys:String x:Key="IPV6">IPV6</sys:String>
+    <sys:String x:Key="StartWithWindows">起動時に実行</sys:String>
+    <sys:String x:Key="UWPLoopback">UWP ループバック</sys:String>
+    <sys:String x:Key="LaunchHelper">ループバックヘルパー</sys:String>
+    <sys:String x:Key="NetFilterDriver">NetFilter ドライバー</sys:String>
+    <sys:String x:Key="Install">インストール</sys:String>
+    <sys:String x:Key="ProcessProxy">プロセスプロキシ</sys:String>
+    <sys:String x:Key="Theme">テーマ</sys:String>
+    <sys:String x:Key="Language">言語</sys:String>
+    <sys:String x:Key="SystemProxy">システムプロキシ</sys:String>
+
+    <!-- Support Page -->
+    <sys:String x:Key="Developer">デベロッパー</sys:String>
+    <sys:String x:Key="Help">ヘルプ</sys:String>
+    <sys:String x:Key="Credits">クレジット</sys:String>
+    <sys:String x:Key="Donate">寄付</sys:String>
+    <sys:String x:Key="Airport">プロキシプロバイダ></sys:String>
+    <sys:String x:Key="CryptoCurrency">暗号通貨</sys:String>
+    <sys:String x:Key="Advertisement">広告</sys:String>
+    
+    <!-- Dialogs -->
+    <sys:String x:Key="EditProfileInformation">プロファイルの情報を編集</sys:String>
+    <sys:String x:Key="Name">名前</sys:String>
+    <sys:String x:Key="URL">URL</sys:String>
+    <sys:String x:Key="UpdateInterval">自動更新の間隔 (時間)</sys:String>
+    <sys:String x:Key="Ok">決定</sys:String>
+    <sys:String x:Key="Cancel">キャンセル</sys:String>
+</ResourceDictionary>
