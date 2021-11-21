@@ -1,0 +1,222 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:Borders="clr-namespace:ToggleSwitch.Borders;assembly=ToggleSwitch" 
+     xmlns:ToggleSwitch="clr-namespace:ToggleSwitch;assembly=ToggleSwitch" 
+     xmlns:Utils="clr-namespace:ToggleSwitch.Utils;assembly=ToggleSwitch"
+     xmlns:Controls="clr-namespace:ClashDotNetFramework.Models.Controls" 
+     xmlns:Converters="clr-namespace:ClashDotNetFramework.Models.Converters">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ToggleSwitch;component/Themes/Generic.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Converters:CornerRadiusValueConverter x:Key="CornerRadiusValueConverter"/>
+    <Converters:ScalarValueConverter x:Key="ScalarConverter"/>
+    
+    <ControlTemplate x:Key="EngravedContentTemplate" TargetType="ContentControl">
+        <Controls:DropShadowTextBlock 
+                        DropShadowColor="#FFF7F7F7" 
+                        DropShadowOpacity="0.3" 
+                        DropShadowDistance="1" 
+                        DropShadowAngle="90" 
+                        Cursor="{TemplateBinding Cursor}" 
+                        Text="{TemplateBinding Content}" 
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                        Margin="{TemplateBinding Padding}" 
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                        Foreground="{TemplateBinding Foreground}" 
+                        FontFamily="{TemplateBinding FontFamily}" 
+                        FontSize="{TemplateBinding FontSize}" 
+                        FontWeight="{TemplateBinding FontWeight}" 
+                        FontStyle="{TemplateBinding FontStyle}" 
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Focusable="False" IsTabStop="False"/>
+    </ControlTemplate>
+    <ControlTemplate x:Key="iOS5ThumbTemplate" TargetType="Thumb">
+        <Grid Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.05" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.25" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To=".55" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStates">
+                    <VisualState x:Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.05" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unfocused"/>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="CheckStates">
+                    <VisualState x:Name="Unchecked"/>
+                    <VisualState x:Name="Checked"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Borders:OuterGlowBorder OuterGlowSize="1" BorderThickness="0" OuterGlowColor="Black" Background="Transparent" CornerRadius="10" ShadowCornerRadius="12" IsTabStop="False" OuterGlowOpacity="0.05" >
+                <Grid>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="11" Background="{TemplateBinding Background}">
+                        <Borders:ClippingBorder x:Name="Background" CornerRadius="12" IsTabStop="False" Background="{TemplateBinding Background}" BorderBrush="#FFEBEBEB" BorderThickness="1"/>
+                    </Border>
+                    <Borders:ClippingBorder x:Name="BackgroundAnimation" Background="Black" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Black" CornerRadius="11" IsTabStop="False"/>
+                    <Rectangle x:Name="DisabledVisualElement" Fill="White" IsHitTestVisible="false" Opacity="0" RadiusY="11" RadiusX="11"/>
+                    <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Margin="1" Opacity="0" RadiusY="9" RadiusX="9" StrokeThickness="1"/>
+                </Grid>
+            </Borders:OuterGlowBorder>
+        </Grid>
+    </ControlTemplate>
+    <ControlTemplate x:Key="BrushedThumbTemplate" TargetType="Thumb">
+        <Grid Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal"/>
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.05" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.25" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To=".55" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStates">
+                    <VisualState x:Name="Focused">
+                        <Storyboard>
+                            <DoubleAnimation Duration="0" To="0.05" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Unfocused"/>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Image Source="/Demo;component/Images/Knob.png"/>
+            <Borders:ClippingBorder x:Name="BackgroundAnimation" Background="Black" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Black" CornerRadius="14"/>
+            <Rectangle x:Name="DisabledVisualElement" IsHitTestVisible="false" Opacity="0" RadiusY="14" RadiusX="14"/>
+            <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Opacity="0" RadiusY="14" RadiusX="14"/>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="iOS5ToggleSwitchStyle" TargetType="ToggleSwitch:HorizontalToggleSwitch">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Width" Value="50"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="BorderBrush" Value="#AFBEBEBE"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="0,4"/>
+        <Setter Property="UncheckedForeground" Value="#FF5F5F5F"/>
+        <Setter Property="CheckedForeground" Value="White" />
+        <Setter Property="ThumbSize" Value="24"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="ContentTemplate" Value="{StaticResource EngravedContentTemplate}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ThumbTemplate" Value="{StaticResource iOS5ThumbTemplate}"/>
+        <Setter Property="ThumbBrush" Value="White" />
+        <Setter Property="CheckedBackground" Value="{DynamicResource ToggleSwitchCheckedBackground}"/>
+        <Setter Property="UncheckedBackground" Value="{DynamicResource ToggleSwitchUnCheckedBackground}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleSwitch:HorizontalToggleSwitch">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="DisabledOverlay">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Pressed"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition GeneratedDuration="0:0:0.10" To="Unchecked"/>
+                                    <VisualTransition GeneratedDuration="0:0:0.10" To="Checked"/>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Checked"/>
+                                <VisualState x:Name="Unchecked"/>
+                                <VisualState x:Name="DraggingChecked"/>
+                                <VisualState x:Name="DraggingUnchecked"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Borders:ClippingBorder x:Name="SwitchRoot" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding ActualHeightValue, ConverterParameter=0.5, Converter={StaticResource CornerRadiusValueConverter}, ElementName=ActualSizeProxy}" IsTabStop="False" BorderThickness="1" >
+                            <Canvas MinWidth="{TemplateBinding ThumbSize}" MinHeight="{TemplateBinding FontSize}">
+                                <Utils:ActualSizePropertyProxy x:Name="ActualSizeProxy" Element="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" Visibility="Collapsed" IsHitTestVisible="False"/>
+                                <Grid x:Name="SwitchTrack" Cursor="Hand" Margin="0,-1,0,0" Height="{Binding ActualHeightValue, ElementName=ActualSizeProxy, Mode=OneWay}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Background="{TemplateBinding CheckedBackground}" Margin="-1,0,0,0" Padding="1,0,0,0">
+                                            <ContentControl x:Name="SwitchChecked" 
+    											Content="{TemplateBinding CheckedContent}"
+    											HorizontalContentAlignment="Center" 
+    											VerticalContentAlignment="Center" 
+    											Margin="{TemplateBinding Padding}"
+    											Template="{TemplateBinding ContentTemplate}" 
+    											Foreground="{TemplateBinding CheckedForeground}" 
+    											IsTabStop="False" 
+    											FontSize="{TemplateBinding FontSize}" 
+    											FontFamily="{TemplateBinding FontFamily}" 
+    											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+    											VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                        </Border>
+                                        <Border Background="{TemplateBinding UncheckedBackground}" Margin="-1,0,0,0">
+                                            <ContentControl x:Name="SwitchUnchecked" 
+    											Content="{TemplateBinding UncheckedContent}" 
+    											HorizontalContentAlignment="Center" 
+    											VerticalContentAlignment="Center"
+    											Margin="{TemplateBinding Padding}"
+    											Template="{TemplateBinding ContentTemplate}"
+    											Foreground="{TemplateBinding UncheckedForeground}" 
+    											IsTabStop="False" 
+    											FontSize="{TemplateBinding FontSize}" 
+    											FontFamily="{TemplateBinding FontFamily}" 
+    											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+    											VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                        </Border>
+                                    </StackPanel>
+                                </Grid>
+                                <Thumb x:Name="SwitchThumb" 
+    								Background="{TemplateBinding ThumbBrush}" 
+    								Template="{TemplateBinding ThumbTemplate}" 
+    								Cursor="Hand" 
+    								Height="{Binding ActualHeightValue, ElementName=ActualSizeProxy, Mode=OneWay}" 
+    								Width="{TemplateBinding ThumbSize}" 
+    								IsTabStop="False" 
+    								BorderBrush="{TemplateBinding BorderBrush}" Margin="46,-1,0,0" Focusable="False"/>
+                            </Canvas>
+                        </Borders:ClippingBorder>
+                        <Border x:Name="DisabledOverlay" Background="#AAEEEEEE" Visibility="Collapsed" CornerRadius="{Binding ActualHeightValue, ConverterParameter=0.5, Converter={StaticResource CornerRadiusValueConverter}, ElementName=ActualSizeProxy}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
