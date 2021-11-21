@@ -1,0 +1,40 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClashDotNetFramework.Themes"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <SolidColorBrush x:Key="SidePanelBackground" Color="#42424E"/>
+    <SolidColorBrush x:Key="PageFrameBackground" Color="#2C2A38"/>
+    <SolidColorBrush x:Key="DialogBackground" Color="#42424E"/>
+    <SolidColorBrush x:Key="ContextMenuBackground" Color="#42424E"/>
+
+    <SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#3AA1CC"/>
+    <SolidColorBrush x:Key="ButtonCheckedForeground" Color="White"/>
+    <SolidColorBrush x:Key="ButtonCheckedBackground" Color="#3AA1CC"/>
+    <SolidColorBrush x:Key="ButtonUnCheckedForeground" Color="White"/>
+    <SolidColorBrush x:Key="ButtonUnCheckedBackground" Color="#42424E"/>
+
+    <SolidColorBrush x:Key="MenuButtonCheckedForeground" Color="#3AA1CC"/>
+    <SolidColorBrush x:Key="MenuButtonCheckedBackground" Color="#2C2A38"/>
+    <SolidColorBrush x:Key="MenuButtonUnCheckedForeground" Color="White"/>
+    <SolidColorBrush x:Key="MenuButtonUnCheckedBackground" Color="#42424E"/>
+
+    <SolidColorBrush x:Key="NormalTextForeground" Color="White"/>
+
+    <SolidColorBrush x:Key="SeparatorBackground" Color="#554F4F"/>
+
+    <SolidColorBrush x:Key="TextBoxBackground" Color="#42424E"/>
+    <SolidColorBrush x:Key="TextBoxBorderBrush" Color="Silver"/>
+
+    <SolidColorBrush x:Key="BorderBackground" Color="#42424E"/>
+    
+    <BitmapImage x:Key="AppLogo" UriSource="/Assets/DarkLogo.png"/>
+    
+    <SolidColorBrush x:Key="GridBorderBackground" Color="#606068"/>
+    <SolidColorBrush x:Key="GridTextForeground" Color="White"/>
+
+    <SolidColorBrush x:Key="ToggleSwitchCheckedBackground" Color="#3AA1CC"/>
+    <SolidColorBrush x:Key="ToggleSwitchUnCheckedBackground" Color="White"/>
+
+    <SolidColorBrush x:Key="RadioButtonUnCheckedBackground" Color="#BAB2B2"/>
+</ResourceDictionary>

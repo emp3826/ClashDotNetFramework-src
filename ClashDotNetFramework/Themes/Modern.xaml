@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ClashDotNetFramework.Themes"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <SolidColorBrush x:Key="SidePanelBackground" Color="White"/>
+    <SolidColorBrush x:Key="PageFrameBackground" Color="#FCFDFF"/>
+    <SolidColorBrush x:Key="DialogBackground" Color="White"/>
+    <SolidColorBrush x:Key="ContextMenuBackground" Color="White"/>
+
+    <SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+    <LinearGradientBrush x:Key="ButtonBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ButtonCheckedForeground" Color="White"/>
+    <LinearGradientBrush x:Key="ButtonCheckedBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="ButtonUnCheckedForeground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ButtonUnCheckedBackground" Color="White"/>
+
+    <SolidColorBrush x:Key="MenuButtonCheckedForeground" Color="White"/>
+    <LinearGradientBrush x:Key="MenuButtonCheckedBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="MenuButtonUnCheckedForeground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="MenuButtonUnCheckedBackground" Color="White"/>
+
+    <LinearGradientBrush x:Key="NormalTextForeground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SeparatorBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TextBoxBackground" Color="White"/>
+    <LinearGradientBrush x:Key="TextBoxBorderBrush">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="BorderBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    
+    <BitmapImage x:Key="AppLogo" UriSource="/Assets/ModernLogo.png"/>
+
+    <SolidColorBrush x:Key="GridBorderBackground" Color="White"/>
+    <LinearGradientBrush x:Key="GridTextForeground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ToggleSwitchCheckedBackground">
+        <GradientStop Color="#57BEFC" Offset="0"/>
+        <GradientStop Color="#2C8AF8" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ToggleSwitchUnCheckedBackground" Color="White"/>
+
+    <SolidColorBrush x:Key="RadioButtonUnCheckedBackground" Color="#57BEFC" Opacity="0.5"/>
+</ResourceDictionary>
